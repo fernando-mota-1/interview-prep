@@ -56,20 +56,6 @@ def get_middle(s):
 def findEncryptedWord(s):
   # Write your code here
   return ''.join(list(get_middle(s)))
-  
-  
-  
-	
-
-
-
-
-
-
-
-
-
-
 
 # These are the tests we use to determine if the solution is correct.
 # You can add your own at the bottom, but they are otherwise not editable!
