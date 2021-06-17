@@ -40,6 +40,25 @@ def BFS(graph, v, discovered):
                 # mark it as discovered and enqueue it
                 discovered[u] = True
                 q.append(u)
+
+# Perform BFS recursively on the graph
+def recursiveBFS(graph, q, discovered):
+ 
+    if not q:
+        return
+ 
+    # dequeue front node and print it
+    v = q.popleft()
+    print(v, end=' ')
+ 
+    # do for every edge `v —> u`
+    for u in graph.adjList[v]:
+        if not discovered[u]:
+            # mark it as discovered and enqueue it
+            discovered[u] = True
+            q.append(u)
+ 
+    recursiveBFS(graph, q, discovered)
  
 def discover(graph, numNodes):
     # to keep track of whether a vertex is discovered or not
@@ -51,6 +70,27 @@ def discover(graph, numNodes):
         if not discovered[i]:
             # start BFS traversal from vertex i
             BFS(graph, i, discovered)
+    print()
+
+def discover_recursive(graph, numNodes):
+    # to keep track of whether a vertex is discovered or not
+    discovered = [False] * numNodes
+
+    # create a queue for doing BFS
+    q = deque()
+ 
+    # Perform BFS traversal from all undiscovered nodes to
+    # cover all unconnected components of a graph
+    for i in range(numNodes):
+        if not discovered[i]:
+            # mark the source vertex as discovered
+            discovered[i] = True
+ 
+            # enqueue source vertex
+            q.append(i)
+ 
+            # start BFS traversal from vertex i
+            recursiveBFS(graph, q, discovered)
     print()
  
 if __name__ == '__main__':
@@ -69,3 +109,4 @@ if __name__ == '__main__':
     graph = Graph(edges, N)
  
     discover(graph, N)
+    discover_recursive(graph, N)
