@@ -27,10 +27,11 @@ def discover(graph, numNodes):
  
     # Perform DFS traversal from all undiscovered nodes to
     # cover all unconnected components of a graph
-    for i in range(N):
+    for i in range(numNodes):
         if not discovered[i]:
             DFS(graph, i, discovered)
     print()
+    
 if __name__ == '__main__':
  
     # List of graph edges as per the above diagram
