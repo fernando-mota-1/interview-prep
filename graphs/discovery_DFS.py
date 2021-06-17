@@ -65,7 +65,7 @@ def discover(graph, numNodes):
 
 def discover_recursive(graph, numNodes):
     # to keep track of whether a vertex is discovered or not
-    discovered = [False] * N
+    discovered = [False] * numNodes
  
     # Perform DFS traversal from all undiscovered nodes to
     # cover all unconnected components of a graph
