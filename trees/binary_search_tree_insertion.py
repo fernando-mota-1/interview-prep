@@ -23,11 +23,6 @@ class BinarySearchTree:
     def __init__(self): 
         self.root = None
 
-#Node is defined as
-#self.left (the left child of the node)
-#self.right (the right child of the node)
-#self.info (the value of the node)
-
     def insert(self, val):
         #Enter you code here.
         self.root = self._insert(self.root, val, 0)
@@ -46,6 +41,19 @@ class BinarySearchTree:
             else:
                 node.left = self._insert(node.left, val, lvl + 1)
         return node
+
+    def find(self, val):
+        if not val:
+            return None
+        return self._find(self.root, val)
+
+    def _find(self, node, val):
+        if not node or node.info == val:
+            return node
+        elif val > node.info:
+            self._find(node.right, val)
+        else:
+            self._find(node.left, val)
 
 tree = BinarySearchTree()
 t = int(input())
