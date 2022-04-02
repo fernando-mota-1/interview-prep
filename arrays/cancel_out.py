@@ -23,13 +23,14 @@ def three_sum_zero(arr: Iterable):
                     left += 1
     return None
 
+
 if __name__ == "__main__":
     test_cases = [
         [2, 4, 5, -6, -3, 4, 1, 8],
         [1, -1],
         [-1, 2, 0, -3, -2],
-        None
+        None,
+        [3, 4, 5, 6, 7, 8, -1]
     ]
     for test in test_cases:
         print(f"Test: {test} -> {three_sum_zero(test)}")
-    
